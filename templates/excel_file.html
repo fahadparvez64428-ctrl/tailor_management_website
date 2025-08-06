@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>کسٹمر ایکسل ڈاؤنلوڈ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori';
+      src: url('/fonts/JameelNooriNastaleeq.ttf');
+    }
+
+    body {
+      font-family: 'Jameel Noori', serif;
+      background: linear-gradient(to right, #16a085, #f39c12, #e74c3c);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: white;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      color: black;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Jameel Noori', serif;
+      text-align: right;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #2980b9;
+      color: white;
+      cursor: pointer;
+      font-family: 'Jameel Noori', serif;
+    }
+
+    button:hover {
+      background-color: #1c5981;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      input[type="text"] {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>صرف ایک گاہک کا ریکارڈ نکالیں</h2>
+    <form method="POST" action="/export_customer_excel">
+      <input type="text" name="customer_name" placeholder="مثلاً: محمد علی" required><br>
+      <button type="submit">🧾 ایکسل فائل ڈاؤنلوڈ کریں</button>
+    </form>
+  </div>
+</body>
+</html>

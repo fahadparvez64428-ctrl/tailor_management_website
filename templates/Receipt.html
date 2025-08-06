@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>رسید</title>
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: url('/static/fonts/JameelNooriNastaleeq.ttf');
+    }
+
+    body {
+      font-family: 'Jameel Noori Nastaleeq', sans-serif;
+      background: linear-gradient(135deg, #1abc9c, #9b59b6, #f1c40f);
+      color: white;
+      padding: 60px;
+    }
+
+    .receipt-box {
+      background: white;
+      color: #2c3e50;
+      max-width: 650px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      border: 5px double #34495e;
+      position: relative;
+    }
+
+    .receipt-box h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #e74c3c;
+      border-bottom: 2px dashed #ccc;
+      padding-bottom: 10px;
+    }
+
+    .receipt-item {
+      font-size: 22px;
+      margin: 20px 0;
+      padding: 10px;
+      background: #ecf0f1;
+      border-radius: 12px;
+      border-right: 5px solid #3498db;
+    }
+
+    .receipt-item strong {
+      color: #8e44ad;
+    }
+
+    .thankyou {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 24px;
+      color: #27ae60;
+    }
+
+    .decor-circle {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #e74c3c, #c0392b);
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+      left: -50px;
+    }
+
+    .decor-circle2 {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #f39c12, #e67e22);
+      border-radius: 50%;
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="receipt-box">
+    <div class="decor-circle"></div>
+    <div class="decor-circle2"></div>
+
+    <h2>کسٹمر رسید</h2>
+
+    <div class="receipt-item"><strong>نام:</strong> {{ name }}</div>
+    <div class="receipt-item"><strong>فون نمبر:</strong> {{ phone }}</div>
+    <div class="receipt-item"><strong>پتہ:</strong> {{ address }}</div>
+    <div class="receipt-item"><strong>ناپ:</strong> {{ measurements }}</div>
+    <div class="receipt-item"><strong>قیمت:</strong> {{ price }}</div>
+    <div class="receipt-item"><strong>کل رقم:</strong> {{ total }}</div>
+    <div class="receipt-item"><strong>تاریخ:</strong> {{ date }}</div>
+
+    <div class="thankyou">شکریہ! دوبارہ آئیں</div>
+  </div>
+</body>
+</html>

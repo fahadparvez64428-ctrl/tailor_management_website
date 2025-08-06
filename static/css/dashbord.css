@@ -1,0 +1,184 @@
+
+ 
+@font-face {
+    font-family: 'Jameel Noori Nastaleeq';
+    src: url('/static/fonts/JameelNooriNastaleeq.ttf') format('truetype');
+  } 
+   
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+    background: linear-gradient(to right, #16a085, #f39c12, #e74c3c);
+    color: white;
+}
+
+a.dash-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dashboard-container {
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.dashboard-container h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Grid Layout for Larger Screens */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row */
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dash-btn {
+
+    background: #ffffffdd;
+    color: #2c3e50;
+    font-size: 22px;
+    padding: 18px 10px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+
+}
+
+.dash-btn:hover {
+    background-color: #ecf0f1;
+    transform: scale(1.05);
+}
+
+.logout {
+    background-color: #c0392b !important;
+    color: white !important;
+}
+
+.logout:hover {
+    background-color: #e74c3c !important;
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 per row */
+    }
+}
+
+/* Small Screens (Mobile) */
+@media (max-width: 600px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;  /* 1 per row */
+    }
+
+    .dashboard-container h1 {
+        font-size: 26px;
+    }
+
+    .dash-btn {
+        font-size: 18px;
+        padding: 14px;
+    }
+}
+
+/* Dashbord form */
+
+/* @font-face {
+    font-family: 'Jameel Noori';
+    src: url('JameelNooriNastaleeq.ttf');
+} */
+
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+    background: linear-gradient(to right, #16a085, #f39c12, #e74c3c);
+    color: white;
+} */
+
+.form-container {
+    font-family: 'Jameel Noori Nastaleeq', serif;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    border-radius: 18px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    color: black;
+}
+
+h2, h3 {
+    font-size: 28px;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+
+}
+
+.button-row {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #16a085;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+
+}
+
+button:hover {
+    background-color: #1abc9c;
+}
+
+/* Mobile Friendly */
+@media (max-width: 600px) {
+    h2, h3 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}

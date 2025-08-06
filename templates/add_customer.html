@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قمیض شلوار فارم</title>
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: url('/static/fonts/JameelNooriNastaleeq.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      /* font-family: 'Jameel Noori Nastaleeq', serif; */
+      margin: 0;
+      padding: 0;
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      background: linear-gradient(to right, #16a085, #f39c12, #e74c3c);
+      color: white;
+      direction: rtl;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      max-width: 1100px;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .left, .right {
+      flex: 1 1 48%;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      font-weight: bolder;
+      
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .button-row {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      font-family: 'Jameel Noori Nastaleeq', serif;
+    }
+
+    .save-btn {
+      background: #16a085;
+      color: white;
+      padding: 14px 50px;
+    }
+
+    .save-btn:hover {
+      background-color: #138d75;
+    }
+
+    .cancel-btn {
+      background: #e74c3c;
+      color: white;
+      padding: 10px 30px;
+    }
+
+    .cancel-btn:hover {
+      background-color: #c0392b;
+    }
+
+    @media(max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        width: 100%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>قمیض شلوار اندراج فارم</h2>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul style="color: red;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    <form action="/save_customer" method="POST">
+
+
+      <div class="section">
+        <div class="left">
+          <label>ID</label>
+          <input type="text" name="id">
+
+          <label>نام</label>
+          <input type="text" name="name">
+
+          <label>فون نمبر</label>
+          <input type="text" name="phone">
+
+          <label>ایڈریس</label>
+          <input type="text" name="address">
+
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="collar"> کالر </label>
+            <label><input type="checkbox" name="ban"> بین </label>
+            <label><input type="checkbox" name="gara_Goal"> گیرا گول </label>
+            <label><input type="checkbox" name="gara_churas"> گیرا چورس </label>
+            <label><input type="checkbox" name="fornt_poket"> سامنے پاکٹ </label>
+            <label><input type="checkbox" name="site_poket"> سائیڈ پاکٹ </label>
+            <label><input type="checkbox" name="single_salay"> سنگل سلائی </label>
+            <label><input type="checkbox" name="duble_salay"> ڈبل سلائی </label>
+            <label><input type="checkbox" name="pajama"> پاجامہ </label>
+            <label><input type="checkbox" name="shalwar_checkbox"> شلوار </label>
+            <label><input type="checkbox" name="embroidery"> کڑھائی</label>
+            <label><input type="checkbox" name="extra_button"> اضافی بٹن</label>
+          </div>
+          
+        </div>
+
+        <div class="right">
+          <label>قمیض لمبائی</label>
+          <input type="text" name="kameez_Length">
+          <label>بازو</label>
+          <input type="text" name="bazu">
+          <label>تیرا</label>
+          <input type="text" name="tera">
+          <label>گلا</label>
+          <input type="text" name="gala">
+          <label>چھاتی</label>
+          <input type="text" name="chati">
+          <label>کمر</label>
+          <input type="text" name="kamar">
+          <label>شلوار</label>
+          <input type="text" name="shalwar">
+          <label>پائنچہ</label>
+          <input type="text" name="puncha">
+          <label>گفت</label>
+          <input type="text" name="note">
+          <label>Price</label>
+          <input type="text" name="price">
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button type="submit" class="save-btn">سیو</button>
+        <button type="reset" class="cancel-btn">کینسل</button>
+      </div>
+      
+    </form>
+  </div>
+</body>
+</html>

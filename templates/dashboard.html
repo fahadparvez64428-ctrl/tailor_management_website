@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>درزی ڈیش بورڈ</title>
+    <link rel="stylesheet" href="/static/css/dashbord.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>👋 خوش آمدید، مَلکو بھائی!</h1>
+
+        <div class="dashboard-grid">
+            <a href="{{ url_for('add_customer') }}" class="dash-btn">➕ نیا گاہک شامل کریں</a>
+            <a href="{{ url_for('view_records') }}" class="dash-btn">📋 تمام ریکارڈ دیکھیں</a>
+
+            {# <a href="{{ url_for('invoice_form') }}" class="dash-btn">📤 ایکسل / پی ڈی ایف برآمد کریں</a> #}
+
+
+
+            <a href="#" class="dash-btn">💸 ادائیگی کی تفصیل</a>
+            <a href="#" class="dash-btn">📊 ماہانہ رپورٹ</a>
+            <a href="#" class="dash-btn logout">🚪 لاگ آؤٹ</a>
+        </div>
+        
+    </div>
+</body>
+</html>

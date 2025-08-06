@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>کسٹمر تلاش کریں</title>
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: url('/static/fonts/JameelNooriNastaleeq.ttf');
+    }
+    body {
+      font-family: 'Jameel Noori Nastaleeq';
+      background: linear-gradient(to right, #8e44ad, #f39c12);
+      color: white;
+      text-align: center;
+      padding: 100px;
+    }
+    .form-box {
+      background: white;
+      color: black;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: 'Jameel Noori Nastaleeq';
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #16a085;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-family: 'Jameel Noori Nastaleeq';
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>کسٹمر تلاش کریں</h2>
+    <form action="receipt.html" method="GET">
+      <!-- button click se direct receipt.html open hoga -->
+    
+      <label>نام:</label><br>
+      <input type="text" name="name" required><br>
+    
+      <label>فون نمبر:</label><br>
+      <input type="text" name="phone" required><br>
+    
+      <button type="submit">تلاش کریں</button>
+    </form>
+    
+    
+  </div>
+</body>
+</html>

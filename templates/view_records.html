@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ریکارڈز دیکھیں</title>
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: url('/static/fonts/JameelNooriNastaleeq.ttf') format('truetype');
+    }
+    body {
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      background: linear-gradient(to right, #16a085, #f39c12, #e74c3c);
+      color: black;
+    }
+    h2{
+      text-align: center;
+    }
+    .record-container {
+      max-width: 95%;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #16a085;
+      color: white;
+    }
+    .delete-btn {
+    background-color: #b30000; /* Dark Red */
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .delete-btn:hover {
+    background-color: #ff4d4d; /* Light red */
+    transform: scale(1.05);
+  }
+
+  .delete-btn:active {
+    transform: scale(0.97);
+  }
+
+  </style>
+</head>
+<body>
+  <div class="record-container">
+    <h2>تمام گاہکوں کا ریکارڈ</h2>
+    <table>
+      <thead>
+        <tr>
+          {% for header in headers %}
+            <th>{{ header }}</th>
+          {% endfor %}
+          <th>حذف کریں</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in records %}
+          <tr>
+            {% for header in headers %}
+              {% set eng_key = headers_map.get(header, header) %}
+              <td>{{ record.get(eng_key, 'خالی') }}</td>
+            {% endfor %}
+            <td>
+              {% set record_id = record.get(headers_map.get('شناختی نمبر', 'ID'), '') %}
+              {% if record_id %}
+              <form method="POST" action="{{ url_for('delete_customer', customer_id=record_id) }}">
+                <button type="submit" class="delete-btn">🗑 حذف</button>
+              </form>
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="{{ headers|length + 1 }}">کوئی ریکارڈ موجود نہیں ہے</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>گاہک تلاش کریں</title>
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori';
+      src: url('/fonts/JameelNooriNastaleeq.ttf');
+    }
+
+    body {
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      background: linear-gradient(to right, #1abc9c, #f39c12);
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    .search-container {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      color: black;
+    }
+
+    h2, h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-size: 18px;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #16a085;
+      color: white;
+      border: none;
+      font-size: 18px;
+      font-family: 'Jameel Noori Nastaleeq', serif;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #138d75;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #16a085;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #ffeaa7;
+    }
+
+    .no-results {
+      text-align: center;
+      color: red;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .search-container {
+        padding: 20px;
+        margin: 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      label {
+        font-size: 16px;
+      }
+
+      input, button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h2>ریکارڈ تلاش کریں</h2>
+    <form action="/search" method="POST">
+      <label for="name">نام:</label>
+      <input type="text" id="name" name="name" placeholder="مثال: احمد خان" />
+
+      <label for="phone">فون نمبر:</label>
+      <input type="text" id="phone" name="phone" placeholder="مثال: 03001234567" />
+
+      <label for="date">تاریخ:</label>
+      <input type="date" id="date" name="date" />
+
+      <button type="submit">تلاش کریں</button>
+    </form>
+
+
+</body>
+</html>

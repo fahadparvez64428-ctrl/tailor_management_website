@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ادائیگی کی تفصیل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori';
+      src: url('/fonts/JameelNooriNastaleeq.ttf');
+    }
+
+    body {
+      font-family: 'Jameel Noori', serif;
+      background: linear-gradient(to right, #16a085, #f39c12, #e74c3c);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .payment-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+      color: black;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    input, select {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 18px;
+      font-family: 'Jameel Noori', serif;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      text-align: right;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #2980b9;
+      color: white;
+      cursor: pointer;
+      font-family: 'Jameel Noori', serif;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #1c5981;
+    }
+
+    @media (max-width: 600px) {
+      .payment-container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      input, select {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h2>ادائیگی کی تفصیل درج کریں</h2>
+    <form method="POST" action="/payment_details">
+      <input type="text" name="customer_name" placeholder="کسٹمر کا نام" required><br>
+      <input type="number" name="total_amount" placeholder="کل رقم" required><br>
+      <input type="number" name="paid_amount" placeholder="ادا شدہ رقم" required><br>
+      <input type="number" name="remaining_amount" placeholder="بقیہ رقم" readonly><br>
+      
+      <select name="payment_method" required>
+        <option value="">ادائیگی کا طریقہ منتخب کریں</option>
+        <option value="cash">نقد</option>
+        <option value="jazzcash">جاز کیش</option>
+        <option value="easypaisa">ایزی پیسہ</option>
+        <option value="bank">بینک</option>
+      </select><br>
+
+      <input type="date" name="payment_date" required><br>
+      <button type="submit">✅ جمع کروائیں</button>
+    </form>
+  </div>
+
+  <script>
+    const total = document.querySelector('input[name="total_amount"]');
+    const paid = document.querySelector('input[name="paid_amount"]');
+    const remain = document.querySelector('input[name="remaining_amount"]');
+
+    function updateRemaining() {
+      const t = parseFloat(total.value) || 0;
+      const p = parseFloat(paid.value) || 0;
+      remain.value = t - p;
+    }
+
+    total.addEventListener('input', updateRemaining);
+    paid.addEventListener('input', updateRemaining);
+  </script>
+</body>
+</html>
